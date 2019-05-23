@@ -15,7 +15,12 @@ public class LinkedList <T>{
 
     void addToTail(T data){
         Node newNode = new Node(data);
+        Node tmpNode = this.head;
 
+        while(tmpNode.next != null){
+            tmpNode = tmpNode.next;
+        }
+        tmpNode.next = newNode;
     }
 
     void displayList(){
@@ -141,11 +146,13 @@ public class LinkedList <T>{
         int counter = 0;
 
         while (tmp.next != null){
-            if(counter == n)
+            if(counter == n) {
                 break;
+            }
             counter++;
             tmp = tmp.next;
         }
+
 
         while (tmp.next != null){
             result.addToFront(tmp.data);
@@ -192,7 +199,7 @@ public class LinkedList <T>{
         System.out.println("list before snipping");
         testList.displayList();
         System.out.println("List after snipping");
-        testList =  returnFromN(2,testList.head);
+        testList =  returnFromN(1,testList.head);
         testList.displayList();
 
 
